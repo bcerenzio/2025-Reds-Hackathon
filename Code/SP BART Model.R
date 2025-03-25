@@ -329,10 +329,10 @@ find_weight1_bfsp <- function(weight_2021_1sp){
   batters_faced_xg <- batters_faced_xg %>% 
     dummy_cols(select_columns = c('cluster_2023_sp', 'cluster_2023_sp_prop'), remove_selected_columns = TRUE)
   
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -722,10 +722,10 @@ find_weight2_bfsp <- function(weight_2021_2sp){
   batters_faced_xg <- batters_faced_xg %>% 
     dummy_cols(select_columns = c('cluster_2023_sp', 'cluster_2023_sp_prop'), remove_selected_columns = TRUE)
   
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -1114,10 +1114,10 @@ find_weight3_bfsp <- function(weight_2021_3sp){
   batters_faced_xg <- batters_faced_xg %>% 
     dummy_cols(select_columns = c('cluster_2023_sp', 'cluster_2023_sp_prop'), remove_selected_columns = TRUE)
   
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -1504,10 +1504,10 @@ find_weight4_bfsp <- function(weight_2022_4sp){
   batters_faced_xg <- batters_faced_xg %>% 
     dummy_cols(select_columns = c('cluster_2023_sp', 'cluster_2023_sp_prop'), remove_selected_columns = TRUE)
   
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -1893,10 +1893,10 @@ find_weight5_bfsp <- function(weight_2022_5sp){
   batters_faced_xg <- batters_faced_xg %>% 
     dummy_cols(select_columns = c('cluster_2023_sp', 'cluster_2023_sp_prop'), remove_selected_columns = TRUE)
   
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -2283,10 +2283,10 @@ find_weight6_bfsp <- function(weight_2022_6sp){
   
   dtrain_pitching <- xgb.DMatrix(as.matrix(batters_faced_xg %>% select(-playing_time_2023)), label = batters_faced_xg$playing_time_2023)
   
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -2669,7 +2669,7 @@ batters_faced_xg <- batters_faced_xg %>%
   dummy_cols(select_columns = c('cluster_2023_sp', 'cluster_2023_sp_prop'), remove_selected_columns = TRUE)
 
 hyperparam_bart_bfsp <- function(sigdf_sp, sigquant_sp, k_sp, power_sp, row_num){
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
   
   print(paste('Sigdf: ', sigdf_sp))
   print(paste('Sigquant: ', sigquant_sp))
@@ -2677,7 +2677,7 @@ hyperparam_bart_bfsp <- function(sigdf_sp, sigquant_sp, k_sp, power_sp, row_num)
   print(paste('Power: ', power_sp))
   print(paste('Row Number: ', row_num))
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
@@ -2844,8 +2844,8 @@ trees_sp <- 900
 
 # finding final rmse with cross validation
 final_rmse_bart_bfsp <- function(){
-  set.seed(101);batters_faced_xg$fold <- sample(1:20, nrow(batters_faced_xg), replace = TRUE)
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  set.seed(101);batters_faced_xg$fold <- sample(1:35, nrow(batters_faced_xg), replace = TRUE)
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- batters_faced_xg %>% 
       filter(fold != i) %>% 
