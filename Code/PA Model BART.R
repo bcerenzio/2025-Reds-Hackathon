@@ -183,10 +183,10 @@ weighting1_function_pa <- function(weight_2021_1){
            -starts_with('percentile_90_'))
   
   
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -443,10 +443,10 @@ weighting2_function_pa <- function(weight_2021_2){
            -starts_with('hardhit_pct_'),-starts_with('hr_pct_'), -starts_with('avg_ev_'), -starts_with('wOBA_'),
            -starts_with('percentile_90_'))
   
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -702,10 +702,10 @@ weighting3_function_pa <- function(weight_2021_3){
            -starts_with('hardhit_pct_'),-starts_with('hr_pct_'), -starts_with('avg_ev_'), -starts_with('wOBA_'),
            -starts_with('percentile_90_'))
   
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -962,10 +962,10 @@ weighting4_function_pa <- function(weight_2022_4){
   plate_app_xg_x <- plate_app_xg %>% select(-playing_time_2023) %>% 
     dummy_cols(select_columns = c('pos', 'cluster_2023'), remove_selected_columns = TRUE)
   
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -1227,10 +1227,10 @@ weighting5_function_pa <- function(weight_2022_5){
   plate_app_xg_x <- plate_app_xg %>% select(-playing_time_2023) %>% 
     dummy_cols(select_columns = c('pos', 'cluster_2023'), remove_selected_columns = TRUE)
   
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -1485,10 +1485,10 @@ weighting6_function_pa <- function(weight_2022_6){
     dummy_cols(select_columns = c('pos', 'cluster_2023'), remove_selected_columns = TRUE)
   
   
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -1745,7 +1745,7 @@ plate_app_xg_x <- plate_app_xg %>% select(-playing_time_2023) %>%
 
 
 hyperparam_bart_pa <- function(sigdf, sigquant, k, power, row_num){
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
   print(paste('Sigdf: ', sigdf))
   print(paste('Sigquant: ', sigquant))
@@ -1753,7 +1753,7 @@ hyperparam_bart_pa <- function(sigdf, sigquant, k, power, row_num){
   print(paste('Power: ', power))
   print(paste('Row Number: ', row_num))
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
@@ -1951,9 +1951,9 @@ trees <- 1000
 
 # finding final rmse with cross validation
 final_rmse_bart_pa <- function(){
-  set.seed(101);plate_app_xg$fold <- sample(1:20, nrow(plate_app_xg), replace = TRUE)
+  set.seed(101);plate_app_xg$fold <- sample(1:35, nrow(plate_app_xg), replace = TRUE)
   
-  rmse_val <- numeric();set.seed(101);for (i in 1:20){
+  rmse_val <- numeric();set.seed(101);for (i in 1:35){
     print(paste('Iteration: ', i))
     train_data <- plate_app_xg %>% 
       filter(fold != i)
